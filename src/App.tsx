@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Polaroid} from './component/Polaroid';
+import {photos} from './data/photos';
+import {AssociationsProvider} from './hooks/useAssociations';
+import {Photo} from './model/Photo';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [randomisedPhotos] = React.useState<Photo[]>(photos.sort(() => Math.random() - 0.5));
+    return (
+        <AssociationsProvider>
+            <div className="App">
+                {randomisedPhotos.map(photo => <Polaroid photo={photo}/>)}
+            </div>
+        </AssociationsProvider>
+    );
 }
 
 export default App;
