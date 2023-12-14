@@ -36,7 +36,7 @@ const imgCss = css({
 
 const labelCss = css({
     marginTop: "10px",
-    color: "#2427b7",
+    color: "#2a3775",
     fontSize: "20px",
     fontWeight: "bold",
     fontFamily: "'Satisfy', cursive",
