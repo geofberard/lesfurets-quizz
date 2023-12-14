@@ -12,15 +12,23 @@ import {css} from '@emotion/react';
 const API_URL = "https://script.google.com/macros/s/AKfycbyRmtD7qfsSj1UHvZn11UGa0XxiQAcWy6sbHr1XfvDRbTCl2qQaHmt54T2wMuv7JgU/exec";
 
 enum QuizzState {
-    PICTURES,
-    NAME,
+    PHOTO_ASSOCIATION,
+    IDENTIFICATION,
     WAITING,
     DONE,
 }
 
+const splashScreenBackdropCss = css({
+    zIndex: 2000,
+});
+
+const splashScreenProgressCss = css({
+    color: "#fff",
+});
+
 const Menu: FC = () => {
     const [associations] = useAssociations();
-    const [submitState, setSumbitState] = React.useState(QuizzState.PICTURES);
+    const [submitState, setSumbitState] = React.useState(QuizzState.PHOTO_ASSOCIATION);
     const theme = useTheme();
 
     const miniCss = css({
@@ -40,7 +48,7 @@ const Menu: FC = () => {
     });
 
     const handleClose = () => {
-        setSumbitState(QuizzState.PICTURES);
+        setSumbitState(QuizzState.PHOTO_ASSOCIATION);
     };
 
     const handleSubmit = (name: String) => {
@@ -63,16 +71,16 @@ const Menu: FC = () => {
                         <span css={miniCss}>mini</span>
                         <span css={furetsCss}>furets</span>
                     </Typography>
-                    <Button css={buttonCss} onClick={() => setSumbitState(QuizzState.NAME)}>
+                    <Button css={buttonCss} onClick={() => setSumbitState(QuizzState.IDENTIFICATION)}>
                         Je&nbsp;valide&nbsp;&nbsp;<SendIcon color="secondary"/>
                     </Button>
                 </Toolbar>
             </AppBar>
-            <NameDialog open={submitState === QuizzState.NAME}
+            <NameDialog open={submitState === QuizzState.IDENTIFICATION}
                         onSubmit={handleSubmit}
                         onClose={handleClose} />
-            <Backdrop className={"SplashScreen"} open={submitState === QuizzState.WAITING}>
-                <CircularProgress color="inherit"/>
+            <Backdrop css={splashScreenBackdropCss} open={submitState === QuizzState.WAITING}>
+                <CircularProgress css={splashScreenProgressCss} size={"8rem"}/>
             </Backdrop>
             <ConfirmDialog open={submitState === QuizzState.DONE}
                            onClose={handleClose}/>
