@@ -33,6 +33,7 @@ const NameDialog: FC<NameDialogProps> = ({open, onSubmit, onClose}) => {
                         id="name"
                         label="Je suis"
                         type="email"
+                        variant="standard"
                         onChange={(event) => setName(event.target.value)}
                         fullWidth
                     />

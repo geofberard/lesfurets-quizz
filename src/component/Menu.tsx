@@ -18,12 +18,6 @@ enum QuizzState {
     DONE,
 }
 
-const appBarCss = css({
-    background: "#fff"
-});
-
-
-
 const Menu: FC = () => {
     const [associations] = useAssociations();
     const [submitState, setSumbitState] = React.useState(QuizzState.PICTURES);

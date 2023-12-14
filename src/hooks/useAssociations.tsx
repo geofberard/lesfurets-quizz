@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Photo} from "../model/Photo";
 import {Name} from "../model/Name";
-import {Context, createContext, FC, FunctionComponent, PropsWithChildren} from 'react';
+import {Context, createContext, FunctionComponent, PropsWithChildren} from 'react';
 
 type Associations = { [key: string]: Name }
 type Associator = (person: Photo, name: Name) => void;

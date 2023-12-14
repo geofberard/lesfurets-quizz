@@ -1,6 +1,6 @@
 import * as React from "react";
 import {FC} from "react";
-import {Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
+import {Dialog, DialogContent, DialogTitle} from '@mui/material';
 
 interface ConfirmDialogProps {
     open: boolean;
@@ -17,7 +17,7 @@ const ConfirmDialog: FC<ConfirmDialogProps> = ({open, onClose}) => {
                 aria-describedby="alert-dialog-slide-description">
                 <DialogTitle id="alert-dialog-slide-title">Voilà c’est fini. C’était rapide non ?</DialogTitle>
                 <DialogContent>
-                    <img src="/img/done.gif"/>
+                    <img src="/img/done.gif" alt={"done"}/>
                 </DialogContent>
                 <DialogContent>
                     Mais les résultats seront communiqués plus tard...

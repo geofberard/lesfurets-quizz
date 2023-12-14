@@ -5,8 +5,6 @@ import {AssociationsProvider} from './hooks/useAssociations';
 import {Photo} from './model/Photo';
 import Menu from './component/Menu';
 import {createTheme, ThemeProvider} from '@mui/material';
-import { grey } from '@mui/material/colors';
-
 
 const theme = createTheme({
     palette: {

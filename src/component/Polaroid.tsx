@@ -64,6 +64,7 @@ export const Polaroid: FC<PolaroidProps> = ({photo}) => {
                         options={names}
                         getOptionLabel={(name: Name) => name.label}
                         value={name}
+                        openOnFocus={true}
                         onChange={(event, newValue) => {
                             setName(newValue as Name);
                             setFocused(false);
@@ -72,6 +73,7 @@ export const Polaroid: FC<PolaroidProps> = ({photo}) => {
                             <TextField {...params}
                                        onBlur={() => setFocused(false)}
                                        fullWidth
+                                       variant="standard"
                                        autoFocus={focused}/>
                         )}
                     />
