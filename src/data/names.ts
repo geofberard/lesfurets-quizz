@@ -42,7 +42,7 @@ export const names: Name[] = [
     {id: "marion-z", label: "Marion Z."},
     {id: "maxence", label: "Maxence"},
     {id: "mehdi", label: "Mehdi"},
-    {id: "mica", label: "Mica"},
+    {id: "micael", label: "Micaël"},
     {id: "olivia", label: "Olivia"},
     {id: "olympe", label: "Olympe"},
     {id: "patty", label: "Patty"},

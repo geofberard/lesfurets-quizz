@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import * as React from 'react';
-import {FC} from 'react';
+import {ChangeEvent, FC, useState} from 'react';
 import {Photo} from "../model/Photo";
 import {Name} from "../model/Name";
 import {css} from '@emotion/react';
@@ -47,8 +47,12 @@ interface PolaroidProps {
     photo: Photo,
 }
 
+const secretRegex = /^Lesfurets.*/g;
+const secretName = {id:"tbd", label: "tbd"};
+
 export const Polaroid: FC<PolaroidProps> = ({photo}) => {
-    const [focused, setFocused] = React.useState(false);
+    const [nameOptions, setNameOptions] = useState(names);
+    const [focused, setFocused] = useState(false);
     const [name, setName] = useAssociation(photo);
 
     return (
@@ -62,10 +66,20 @@ export const Polaroid: FC<PolaroidProps> = ({photo}) => {
                 {!focused ? (name ? name.label : "Je suis ..." ) : (
                     <Autocomplete
                         id="combo-box-demo"
-                        options={names}
+                        options={nameOptions}
                         getOptionLabel={(name: Name) => name.label}
                         value={name}
                         openOnFocus={true}
+                        onInput={(event: ChangeEvent<HTMLInputElement>) => {
+                            const userEntry = event.target.value;
+
+                            if(secretRegex.test(userEntry) && nameOptions.length === names.length) {
+                                setNameOptions([secretName,...names].sort((a,b) => a.label > b.label ? 1 : -1 ));
+                            } else if(!secretRegex.test(userEntry) && nameOptions.length > names.length) {
+                                setNameOptions(names);
+                            }
+
+                        }}
                         onChange={(event, newValue) => {
                             setName(newValue as Name);
                             setFocused(false);

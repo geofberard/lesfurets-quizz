@@ -28,7 +28,7 @@ const splashScreenProgressCss = css({
 
 const Menu: FC = () => {
     const [associations] = useAssociations();
-    const [submitState, setSumbitState] = React.useState(QuizzState.PHOTO_ASSOCIATION);
+    const [submitState, setSumbitState] = React.useState(QuizzState.DONE);
     const theme = useTheme();
 
     const miniCss = css({
