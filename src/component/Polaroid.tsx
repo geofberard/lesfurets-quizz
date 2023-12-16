@@ -35,6 +35,7 @@ const imgCss = css({
 });
 
 const labelCss = css({
+    textAlign: "center",
     marginTop: "10px",
     color: "#2a3775",
     fontSize: "20px",

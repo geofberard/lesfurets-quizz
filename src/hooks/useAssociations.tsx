@@ -24,7 +24,6 @@ export const AssociationsProvider: FunctionComponent<PropsWithChildren> = ({chil
 
     const associate = (person: Photo, name: Name) => {
         setAssociations({...associations, [person.id]: name});
-        console.log(person, name, associations);
     }
 
     return (

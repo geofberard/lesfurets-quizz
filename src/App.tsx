@@ -1,10 +1,8 @@
 import React from 'react';
-import {Polaroid} from './component/Polaroid';
-import {photos} from './data/photos';
 import {AssociationsProvider} from './hooks/useAssociations';
-import {Photo} from './model/Photo';
 import Menu from './component/Menu';
 import {createTheme, ThemeProvider} from '@mui/material';
+import {PictureWall} from './component/PictureWall';
 
 const theme = createTheme({
     palette: {
@@ -27,18 +25,13 @@ const theme = createTheme({
     },
 });
 
-const App = () => {
-    const [randomisedPhotos] = React.useState<Photo[]>(photos.sort(() => Math.random() - 0.5));
-    return (
-        <AssociationsProvider>
-            <ThemeProvider theme={theme}>
-                <Menu/>
-                <div className="App">
-                    {randomisedPhotos.map(photo => <Polaroid photo={photo}/>)}
-                </div>
-            </ThemeProvider>
-        </AssociationsProvider>
-    );
-}
+const App = () => (
+    <AssociationsProvider>
+        <ThemeProvider theme={theme}>
+            <Menu/>
+            <PictureWall />
+        </ThemeProvider>
+    </AssociationsProvider>
+);
 
 export default App;
