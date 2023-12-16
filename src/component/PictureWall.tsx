@@ -5,7 +5,6 @@ import {Polaroid} from "./Polaroid";
 import {css} from '@emotion/react';
 import {Photo} from '../model/Photo';
 import {photos} from '../data/photos';
-import {Toolbar} from '@mui/material';
 
 const pictureWallCss = css({
     display: "flex",
@@ -19,11 +18,8 @@ const pictureWallCss = css({
 export const PictureWall: FC = () => {
     const [randomisedPhotos] = React.useState<Photo[]>(photos.sort(() => Math.random() - 0.5));
     return (
-        <>
-            <Toolbar />
-            <div className="PictureWall" css={pictureWallCss}>
-                {randomisedPhotos.map(photo => <Polaroid photo={photo}/>)}
-            </div>
-        </>
+        <div className="PictureWall" css={pictureWallCss}>
+            {randomisedPhotos.map(photo => <Polaroid photo={photo}/>)}
+        </div>
     );
 };

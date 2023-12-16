@@ -76,6 +76,7 @@ const Menu: FC = () => {
                     </Button>
                 </Toolbar>
             </AppBar>
+            <Toolbar />
             <NameDialog open={submitState === QuizzState.IDENTIFICATION}
                         onSubmit={handleSubmit}
                         onClose={handleClose} />
