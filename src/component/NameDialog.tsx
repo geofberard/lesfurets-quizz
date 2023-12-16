@@ -21,8 +21,6 @@ const NameDialog: FC<NameDialogProps> = ({open, onSubmit, onClose}) => {
     const remaining = photos.length + 1 - Object.keys(associations).length;
     let complete = remaining === 0;
 
-    console.log(remaining, complete)
-
     return (
         <Dialog
             open={open}

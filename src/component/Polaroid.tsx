@@ -7,6 +7,8 @@ import {css} from '@emotion/react';
 import {Autocomplete, TextField} from '@mui/material';
 import {names} from '../data/names';
 import {useAssociation} from '../hooks/useAssociation';
+import CryptoJS from 'crypto-js';
+import {uselessLyrics} from '../data/uselessLyrics';
 
 const polaroidCss = css({
     background: "white",
@@ -47,8 +49,13 @@ interface PolaroidProps {
     photo: Photo,
 }
 
-const secretRegex = /^Lesfurets.*/g;
-const secretName = {id:"tbd", label: "tbd"};
+let key = CryptoJS.MD5(uselessLyrics).toString();
+
+const secretRegex = new RegExp(CryptoJS.AES.decrypt("U2FsdGVkX18DI/7Qg0jGhC2u9rkaVjXAVmxhGrhrYk4=", key).toString(CryptoJS.enc.Utf8));
+const secretName = {
+    id: CryptoJS.AES.decrypt("U2FsdGVkX1/d0+UcFcIiEfWYmd48YipY3VyuBGrFi1Q=", key).toString(CryptoJS.enc.Utf8),
+    label: CryptoJS.AES.decrypt("U2FsdGVkX18tktmH2GMlb2OGa60wYa2mPzE/ilZ3b4Y=", key).toString(CryptoJS.enc.Utf8)
+};
 
 export const Polaroid: FC<PolaroidProps> = ({photo}) => {
     const [nameOptions, setNameOptions] = useState(names);
@@ -63,7 +70,7 @@ export const Polaroid: FC<PolaroidProps> = ({photo}) => {
                  alt={photo.id}
                  src={"img/furets/" + photo.url}/>
             <div css={labelCss}>
-                {!focused ? (name ? name.label : "Je suis ..." ) : (
+                {!focused ? (name ? name.label : "Je suis ...") : (
                     <Autocomplete
                         id="combo-box-demo"
                         options={nameOptions}
@@ -73,9 +80,9 @@ export const Polaroid: FC<PolaroidProps> = ({photo}) => {
                         onInput={(event: ChangeEvent<HTMLInputElement>) => {
                             const userEntry = event.target.value;
 
-                            if(secretRegex.test(userEntry) && nameOptions.length === names.length) {
-                                setNameOptions([secretName,...names].sort((a,b) => a.label > b.label ? 1 : -1 ));
-                            } else if(!secretRegex.test(userEntry) && nameOptions.length > names.length) {
+                            if (secretRegex.test(userEntry) && nameOptions.length === names.length) {
+                                setNameOptions([secretName, ...names].sort((a, b) => a.label > b.label ? 1 : -1));
+                            } else if (!secretRegex.test(userEntry) && nameOptions.length > names.length) {
                                 setNameOptions(names);
                             }
 
