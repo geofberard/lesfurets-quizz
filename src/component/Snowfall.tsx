@@ -51,7 +51,7 @@ export const Snowfall: FC = () => (
         <div css={snow("img/snow-large.png", fallingNearBottom, "40s")}/>
         <div css={snow("img/snow-medium.png", fallingMidTop, "50s")}/>
         <div css={snow("img/snow-medium.png", fallingMidBottom, "50s")}/>
-        <div css={snow("img/snow-small.png", fallingFarTop, "65s")}/>
-        <div css={snow("img/snow-small.png", fallingFarBottom, "65s")}/>
+        <div css={snow("img/snow-small.png", fallingFarTop, "60s")}/>
+        <div css={snow("img/snow-small.png", fallingFarBottom, "60s")}/>
     </div>
 );
