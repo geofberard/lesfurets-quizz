@@ -10,7 +10,7 @@ import {uselessLyrics} from '../data/uselessLyrics';
 
 let key = CryptoJS.MD5(uselessLyrics).toString();
 
-const secretRegex = new RegExp(CryptoJS.AES.decrypt("U2FsdGVkX18DI/7Qg0jGhC2u9rkaVjXAVmxhGrhrYk4=", key).toString(CryptoJS.enc.Utf8));
+const secretRegex = new RegExp(CryptoJS.AES.decrypt("U2FsdGVkX19uH/EN9zaywO0pU1ouDQbdVL5fbJEjUDY8MI7RrypfzjxAy314COTp", key).toString(CryptoJS.enc.Utf8));
 const secretName = {
     id: CryptoJS.AES.decrypt("U2FsdGVkX1/d0+UcFcIiEfWYmd48YipY3VyuBGrFi1Q=", key).toString(CryptoJS.enc.Utf8),
     label: CryptoJS.AES.decrypt("U2FsdGVkX18tktmH2GMlb2OGa60wYa2mPzE/ilZ3b4Y=", key).toString(CryptoJS.enc.Utf8)
