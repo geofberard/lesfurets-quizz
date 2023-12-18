@@ -53,7 +53,9 @@ const Menu: FC = () => {
 
     const handleSubmit = (name: String) => {
         setSumbitState(QuizzState.WAITING);
+        console.log(associations);
         const associationsParam : String = Object.keys(associations)
+            .filter(key => associations[key])
             .map(key => `${key}=${associations[key].id}`)
             .join("&");
         console.log(associationsParam);
