@@ -3,8 +3,6 @@ import * as React from 'react';
 import {FC, useState} from 'react';
 import {Photo} from "../model/Photo";
 import {css} from '@emotion/react';
-import {useAssociation} from '../hooks/useAssociation';
-import {NameSelector} from './NameSelector';
 
 const polaroidCss = css({
     background: "white",

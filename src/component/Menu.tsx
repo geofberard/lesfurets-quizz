@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import * as React from "react";
 import {FC} from "react";
-import {AppBar, Backdrop, Button, CircularProgress, Toolbar, Typography, useTheme} from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
+import {AppBar, Backdrop, CircularProgress, Toolbar, Typography, useTheme} from '@mui/material';
 import NameDialog from './NameDialog';
 import ConfirmDialog from './ConfirmDialog';
 import {useAssociations} from '../hooks/useAssociations';
@@ -39,12 +38,6 @@ const Menu: FC = () => {
     const furetsCss = css({
         fontWeight:"bold",
         color: theme.palette.primary.main
-    });
-
-    const buttonCss = css({
-        fontSize: theme.typography.h6.fontSize,
-        fontWeight:"bold",
-        color: theme.palette.secondary.main
     });
 
     const handleClose = () => {

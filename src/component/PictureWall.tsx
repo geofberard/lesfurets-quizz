@@ -17,6 +17,7 @@ const pictureWallCss = css({
 const labelCss = css({
     textAlign: "center",
     marginTop: "25px",
+    marginBottom: "5px",
     color: "white",
     fontSize: "30px",
     fontWeight: "bold",
