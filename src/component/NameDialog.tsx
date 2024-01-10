@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import * as React from "react";
 import {FC} from "react";
-import {photos} from '../data/names';
+import {photos} from '../data/photos';
 import {Button, css, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from '@mui/material';
 import {useAssociations} from '../hooks/useAssociations';
 

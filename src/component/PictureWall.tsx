@@ -3,7 +3,6 @@ import * as React from 'react';
 import {FC} from 'react';
 import {Polaroid} from "./Polaroid";
 import {css} from '@emotion/react';
-import {Photo} from '../model/Photo';
 import {photos} from '../data/photos';
 
 const pictureWallCss = css({
@@ -15,11 +14,23 @@ const pictureWallCss = css({
     margin: "auto"
 });
 
+const labelCss = css({
+    textAlign: "center",
+    marginTop: "25px",
+    color: "white",
+    fontSize: "30px",
+    fontWeight: "bold",
+    fontFamily: "'Satisfy', cursive",
+});
+
 export const PictureWall: FC = () => {
-    const [randomisedPhotos] = React.useState<Photo[]>(photos.sort(() => Math.random() - 0.5));
+    const orderedPhotos =  photos.sort((a,b) => a.ratio - b.ratio);
     return (
-        <div className="PictureWall" css={pictureWallCss}>
-            {randomisedPhotos.map(photo => <Polaroid photo={photo}/>)}
-        </div>
+        <>
+            <div css={labelCss}>Qui étaient les plus difficiles à trouver ?</div>
+            <div className="PictureWall" css={pictureWallCss}>
+                {orderedPhotos.map(photo => <Polaroid photo={photo}/>)}
+            </div>
+        </>
     );
 };

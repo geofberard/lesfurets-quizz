@@ -51,7 +51,6 @@ interface PolaroidProps {
 
 export const Polaroid: FC<PolaroidProps> = ({photo}) => {
     const [focused, setFocused] = useState(false);
-    const [name] = useAssociation(photo);
 
     return (
         <div css={polaroidCss}
@@ -61,11 +60,7 @@ export const Polaroid: FC<PolaroidProps> = ({photo}) => {
                  alt={photo.id}
                  src={"img/furets/" + photo.url}/>
             <div css={labelCss}>
-                {!focused ? (name ? name.label : "Je suis ...") : (
-                    <NameSelector photo={photo}
-                                  focused={focused}
-                                  setFocused={setFocused}/>
-                )}
+                {`${photo.name} (${photo.ratio}%)`}
             </div>
         </div>
     );

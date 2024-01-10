@@ -73,9 +73,6 @@ const Menu: FC = () => {
                         <span css={miniCss}>mini</span>
                         <span css={furetsCss}>furets</span>
                     </Typography>
-                    <Button css={buttonCss} onClick={() => setSumbitState(QuizzState.IDENTIFICATION)}>
-                        Je&nbsp;valide&nbsp;&nbsp;<SendIcon color="secondary"/>
-                    </Button>
                 </Toolbar>
             </AppBar>
             <Toolbar />

@@ -2,7 +2,7 @@
 import React from 'react';
 import {AssociationsProvider} from './hooks/useAssociations';
 import Menu from './component/Menu';
-import {createTheme, ThemeProvider} from '@mui/material';
+import {createTheme, ThemeProvider, Typography} from '@mui/material';
 import {PictureWall} from './component/PictureWall';
 import {Snowfall} from './component/Snowfall';
 import {css} from '@emotion/react';
